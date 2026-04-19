@@ -2,11 +2,9 @@ pipeline {
     agent any
 
     stages {
-        stage('test') {
+        stage('Test') {
             steps {
-                echo 'hello jenkins'
-                sh 'pwd'
-                sh 'ls -l'
+                sh 'python3 test_basic.py'
             }
         }
     }
