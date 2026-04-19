@@ -1,14 +1,13 @@
 pipeline {
-agent any
+    agent any
 
-```
-stages {
-    stage('Test') {
-        steps {
-            echo 'Hello Jenkins!'
+    stages {
+        stage('test') {
+            steps {
+                echo 'hello jenkins'
+                sh 'pwd'
+                sh 'ls -l'
+            }
         }
     }
-}
-```
-
 }
