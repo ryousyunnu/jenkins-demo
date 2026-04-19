@@ -2,9 +2,26 @@ pipeline {
     agent any
 
     stages {
-        stage('Test') {
+        stage('Checkout') {
             steps {
-                sh 'python3 test_basic.py'
+                checkout scm
+            }
+        }
+
+        stage('Install Dependencies') {
+            steps {
+                sh '''
+                    python3 --version
+                    pip3 install -r requirements.txt
+                '''
+            }
+        }
+
+        stage('Run Test') {
+            steps {
+                sh '''
+                    python3 test_basic.py
+                '''
             }
         }
     }
